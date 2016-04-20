@@ -1,5 +1,5 @@
 ##  Jenseits von Flux
-Slides: [github.com/x1b/jenseits-von-flux-jax2016](https://github.com/x1b/jenseits-von-flux)
+Slides: [github.com/x1b/jenseits-von-flux-jax2016](https://github.com/x1b/jenseits-von-flux-jax2016)
 
 <div style="display: flex">
     <div style="flex-grow: 1">
