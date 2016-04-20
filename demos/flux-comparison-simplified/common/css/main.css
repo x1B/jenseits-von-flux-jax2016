@@ -1,0 +1,36 @@
+.shop-wrap {
+    max-width: 900px;
+    width: 60%;
+    margin: 20px 25px;
+}
+.cart {
+    position: fixed;
+    right: 50px;
+    top: 30px;
+}
+
+
+img {
+    width: 150px;
+}
+li {
+    list-style: none;
+}
+button {
+    margin-left: 50px;
+    color: white;
+    background: #00a8e6;
+    text-align: center;
+    border: 1px solid rgba(0,0,0,.06);
+    border-radius: 4px;
+}
+button:hover {
+   opacity: 0.5;
+}
+button:active {
+   opacity: 1.0;
+   background: deeppink;
+}
+button[disabled] {
+    background: #999;
+}

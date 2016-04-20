@@ -1,0 +1,57 @@
+<h3 class="lower-right-headline">Redux - Beispiel - Reducers (1/3)</h3>
+
+<pre class="stretch"><code class="language-javascript">
+import { combineReducers } from 'redux';
+import { RECEIVE_PRODUCTS, ADD_TO_CART } from '../actions';
+import cart from './cart';
+
+function product(state, action) {
+    switch (action.type) {
+        case ADD_TO_CART:
+            return {
+                ...state,
+                inventory: state.inventory - 1
+            };
+
+        default:
+            return state;
+    }
+}
+
+// ...
+</code></pre>
+
+<div class="minimap">
+    <img src="slides/04_redux/images/redux-overview-small-inverse-reducers.svg">
+</div>
+
+
+
+
+
+<div class="slide-comment">
+- Der `product`-Reducer ist das erste Beispiel für einen einfachen Reducer
+- Dieser wird auch nur lokal von anderen Reducern verwendet und daher nicht exportiert
+- `state` ist hier immer ein Produkt
+- Bei unbekannter Action wird dieses einfach wieder zurückgegeben
+
+- Bei einer `ADD_TO_CART`-Action wird ein neues Produkt zurückgegeben
+- Dieses hat bis auf `inventory` die gleichen Properties wie das vorherige Produkt,
+  das `inventory` ist aber um eins niedriger
+- Wir ja schließlich eins aus dem Lager in den Einkaufswagen gelegt
+
+- Die Syntax ist der Object-Spread-Operator der erst mit ES2016 (ES7) kommen wird
+- Im Prinzip werden alle Eigenschaften des Objekts kopiert und ggf. überschrieben, wie hier inventory
+- Man könnte auch `Object.assign` oder Underscore `extend` verwenden
+- Durch den Spread-Operator hat man aber eine sehr kurze, elegante Syntax
+</div>
+
+<aside class="notes">
+    <ul>
+        <li>Reine Funktion <strong>ohne</strong> Seiteneffekte</li>
+        <li>Berechnen neuen Zustand anhand des aktuellen</li>
+        <li>ES Spread (=Object.assign)</li>
+        <li>Sehr gut testbar</li>
+        <li>Konvention: bei unbekannter Action default state</li>
+    </ul>
+</aside>

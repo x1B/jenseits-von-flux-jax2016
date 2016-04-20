@@ -1,0 +1,24 @@
+{
+  "name": "pubsub-demo",
+  "version": "0.1.0-pre",
+  "description": "pub/sub based shop example",
+  "license": "MIT",
+  "scripts": {
+    "test": "grunt test --force",
+    "prepublish": "bower install && grunt optimize",
+    "dist": "grunt dist",
+    "start": "grunt start",
+    "optimize": "grunt optimize",
+    "yo": "yo"
+  },
+  "devDependencies": {
+    "babel": "^5.8.38",
+    "bower": "~1.7.2",
+    "generator-laxarjs": "~1.5.1",
+    "grunt": "~0.4.4",
+    "grunt-babel": "^5.0.2",
+    "grunt-cli": "~0.1.13",
+    "grunt-laxar": "~1.1.2",
+    "yo": "~1.7.0"
+  }
+}

@@ -1,0 +1,57 @@
+<h3 class="lower-right-headline">Redux - Beispiel - View (1/3)</h3>
+
+<pre class="stretch"><code class="language-jsx"></code></pre>
+<script type="text/template" class="jsx-example">
+import React, { Component } from 'react';
+import { connect, Provider } from 'react-redux';
+import { addToCart } from './actions';
+import { getProductsList } from './reducers/products';
+import { ShoppingCart } from './components/CartContainer.jsx';
+
+class ProductsBase extends Component {
+    render() {
+        const { products } = this.props;
+        return <ul>
+            {products.map(product =>
+                <li>
+                    <img src={product.image}/>
+                    {product.title} - {product.price}&euro;
+                    <button onClick={() => this.props.addToCart(product.id)}
+                            disabled={product.inventory === 0}
+                        >add</button>
+                </li>
+            )}
+        </ul>;
+    }
+}
+
+// ...
+</script>
+
+<div class="minimap">
+    <img src="slides/04_redux/images/redux-overview-small-inverse-view.svg">
+</div>
+
+
+
+
+<div class="slide-comment">
+- Als View-Technologie kommt auch wieder React zum Einsatz
+- Dan Abramov empfiehlt die Unterscheidung zwischen Containerkomponenten und Darstellungskomponenten
+- Hier in dem Beispiel ist die Trennung nicht ganz so klar
+- ist bei der Anwendungsgröße aber auch nicht so wichtig
+
+- Hier haben wir eine Darstellungskomponente
+- `state` wird überlicherweise nicht verwendet, sondern nur readonly Properties ausgelesen und gerendert
+- `addToCart`-callback wird auch von außen hereingereicht und nicht in der Darstellungskomponente definiert
+- keinerlei Logik, sondern nur mit Darstellung beauftragt
+</div>
+
+<aside class="notes">
+    <ul>
+        <li>React: Darstellungskomponente (kein Container)</li>
+        <li>Kein Zustand, nur lesbare Eigenschaften</li>
+        <li>auch Callback von außen</li>
+        <li>keine Logik</li>
+    </ul>
+</aside>

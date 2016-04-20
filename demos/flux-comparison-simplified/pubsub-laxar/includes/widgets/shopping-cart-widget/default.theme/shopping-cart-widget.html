@@ -1,0 +1,21 @@
+<div class="cart uk-panel uk-panel-box uk-panel-box-primary">
+    <div class="uk-badge uk-margin-bottom">Your Cart</div>
+    <div class="uk-margin-small-bottom">
+        <div ng-if="resources.cart.products.length == 0">
+            Please add some products to cart.
+        </div>
+        <div ng-repeat="product in resources.cart.products">
+           {{ product.title }} - {{ product.price }}€ x
+           {{ product.quantity }}
+        </div>
+     </div>
+     <div class="uk-margin-small-bottom">
+        <span>Total: {{ resources.cart.total | number:2 }}€</span>
+     </div>
+     <button
+         class="uk-button uk-button-large uk-button-success uk-align-right"
+         ng-click="actions.checkout()"
+         ng-disabled="resources.cart.products.length == 0">
+        Checkout
+     </button>
+</div>

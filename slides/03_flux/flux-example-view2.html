@@ -1,0 +1,58 @@
+<h3 class="lower-right-headline">Flux - Beispiel - View (3/3)</h3>
+
+<pre class="stretch"><code class="language-jsx"></code></pre>
+<script type="text/template" class="jsx-example">
+var React = require('react');
+var FluxibleMixin = require('fluxible').FluxibleMixin;
+var ProductStore = require('./stores/ProductStore');
+var addToCart = require('./actions/addToCart');
+
+var Products = React.createClass({ /* ... */ });
+var ShoppingCart = require('./components/CartContainer.jsx');
+
+var App = React.createClass({
+    mixins: [FluxibleMixin],
+    render: function() {
+        return <div>
+                   <Products />
+                   <ShoppingCart />
+               </div>;
+    }
+});
+
+export function render(context) {
+    React.withContext(
+        context.getComponentContext(),
+        function() {
+            React.render(
+                React.createElement(App),
+                document.getElementById('fluxible-app')
+            );
+        }
+    );
+}
+</script>
+
+<div class="minimap">
+   <img src="slides/03_flux/images/flux-overview-small-inverse-view.svg">
+</div>
+
+
+<div class="slide-comment">
+ - Man könnte meinen, wir seien schon fertig...
+ - Aber: die meisten Flux-Implementierungen erfordern zusätzlichen Boilerplate-
+   code, um die Stores und deren Events an das React-Komponentenmodell
+   "anzudocken".
+ - Hier wird...
+   - der initale Komponentenzustand aus den Stores gelesen,
+   - ein Change-Listener registriert, um den Store-Zustand zu aktualisieren.
+   - dabei wird jeweils die vom ProductStore angebotene Query *getAllProducts*
+     verwendet.
+</div>
+<aside class="notes">
+    <ul>
+        <li>Und jetzt: Boilerplate!</li>
+        <li>Initialisierung, Aktualisierung</li>
+        <li>Beachte: Singleton-charakter der Stores</li>
+     </ul>
+</aside>

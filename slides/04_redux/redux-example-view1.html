@@ -1,0 +1,59 @@
+<h3 class="lower-right-headline">Redux - Beispiel - View (2/3)</h3>
+
+<pre class="stretch"><code class="language-jsx"></code></pre>
+<script type="text/template" class="jsx-example">
+import React, { Component } from 'react';
+import { connect, Provider } from 'react-redux';
+import { addToCart } from './actions';
+import { getProductsList } from './reducers/products';
+import { ShoppingCart } from './components/CartContainer.jsx';
+
+// ...
+
+function mapStateToProps(state) {
+    return { products: getProductsList(state.productsById) };
+}
+
+const Products = connect(
+    mapStateToProps,
+    { addToCart: addToCart }
+)(ProductsBase)
+
+// ...
+</script>
+
+<div class="minimap">
+    <img src="slides/04_redux/images/redux-overview-small-inverse-view.svg">
+</div>
+
+
+
+
+
+<div class="slide-comment">
+- Um Containerkomponenten einfacher zu erstellen, sollte die Library `react-redux` verwendet werden
+- Bietet `connect`-Funktion an, die Logik mit einer Darstellungskomponente verknüpfen kann
+
+- Als erstes Argument kann hier eine Transformation des Zustands in die Properties der jeweiligen Komponente definiert werden
+- Im Modell werden die Produkte in einer Map verwaltet, die hier in ein Array transformiert werden muss
+- Hier wird dazu einfach `getProductsList` aus Reducer-Modul verwendet
+
+- Das zweite Argument von `connect` ist eine Map von Action-Creator Funktionen
+- Diese werden automatisch mit einem `dispatch`-Aufruf umschlossen, um sie direkt in der View verwenden zu können
+
+- Dadurch müssen Darstellungskomponenten nichts über Actions, dispatch und Stores wissen
+- Beide Maps werden gemerged und in den `props` zur Verfügung gestellt
+- `connect` erlaubt weitere Argument, die sind hier aber nicht von Interesse
+</div>
+
+<aside class="notes">
+    <ul>
+        <li>Container-Komponente</li>
+        <li>React-Redux als Verbindungsstück</li>
+        <li>connect:
+            <ul>
+                <li>Mapping von Zustand zu Eigenschaften</li>
+                <li>Funktionen, die dispatch benötigen</li>
+            </ul>
+        </li>
+</aside>

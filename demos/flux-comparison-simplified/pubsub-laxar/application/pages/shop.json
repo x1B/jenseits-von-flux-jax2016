@@ -1,0 +1,45 @@
+{
+   "layout": "one-column",
+
+   "areas": {
+
+      "activities": [
+         {
+            "widget": "products-activity",
+            "features": {
+               "products": { "resource": "product-list" },
+               "decrementInventory": { "onActions": ["add-to-cart"] }
+            }
+         },
+         {
+            "widget": "shopping-cart-activity",
+            "features": {
+               "cart": { "resource": "cart-contents" },
+               "add": { "onActions": ["add-to-cart"] },
+               "checkout": { "onActions": ["cart-checkout"] }
+            }
+         }
+      ],
+
+      "content": [
+         {
+            "widget": "amd:laxar-developer-tools-widget"
+         },
+         {
+            "widget": "product-list-widget",
+            "features": {
+               "addToCart": { "action": "add-to-cart" },
+               "products": { "resource": "product-list" }
+            }
+         },
+         {
+            "widget": "shopping-cart-widget",
+            "features": {
+               "checkout": { "action": "cart-checkout" },
+               "cart": { "resource": "cart-contents" }
+            }
+         }
+      ]
+
+   }
+}

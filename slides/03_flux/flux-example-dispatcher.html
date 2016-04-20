@@ -1,0 +1,55 @@
+<h3 class="lower-right-headline">Flux - Beispiel - Dispatcher</h3>
+
+<div class="minimap">
+   <img src="slides/03_flux/images/flux-overview-small-inverse-dispatcher.svg">
+</div>
+
+<pre class="stretch"><code class="language-jsx"></code></pre>
+<script type="text/template" class="jsx-example">
+var Fluxible = require('fluxible');
+var CartStore = require('./stores/CartStore');
+var ProductStore = require('./stores/ProductStore');
+
+var app = new Fluxible();
+app.registerStore(CartStore);
+app.registerStore(ProductStore);
+
+
+var view = require('./view')
+var receiveProducts = require('./actions/receiveProducts');
+var context = app.createContext();
+context.executeAction(receiveProducts, {}, function (err) {
+    if (err) {
+        throw err;
+    }
+    return view.render(context);
+});
+</script>
+
+
+<div class="slide-comment">
+ - Dispatcher: Teil des Frameworks (app-Objekt), daher nicht besonders
+   interessant als Folie.
+ - Stattdessen (gemogelt): Hier die Verdrahtung der Gesamt-Anwendung.
+ - Der Dispatcher ruft beim .dispatch jeder Aktion einfach synchron
+   alle Stores auf.
+ - Stores dürfen dabei aufeinander zugreifen. Insbesondere können sie
+   jederzeit synchron *aufeinander warten*, per *waitFor*-Aufruf.
+ - Je nach Flux-Implementierung ist waitFor *synchron (z.B. Facebook)* oder
+   *asynchron (z.B. Fluxible):* kann zu Deadlock führen, welches
+   vom Dispatcher erkannt werden sollte.
+ - Im Beispiel kann z.B. der ProductStore auf den CartStore warten, damit
+   der CartStore den ALTEN Zustand sieht, und entscheiden kann, ob der Artikel
+   in den Warenkorb DARF.
+   - Diese Art von Koordination legt Implementierungsdetails der Stores offen,
+     und ist fehleranfällig (im Orginalbeispiel: falsch umgesetzt).
+   - Fehlerzustände müssen daher bereits durch die Action-Creator ausgeschlossen
+     werden.
+</div>
+<aside class="notes">
+    <ul>
+        <li>Hier ein Modul pro Action Creator</li>
+        <li>dispatch(), done()/Promises</li>
+        <li>Asynchrone aktionen</li>
+     </ul>
+</aside>

@@ -1,0 +1,45 @@
+<h3 class="lower-right-headline">Redux - Beispiel - Actions (3/3)</h3>
+
+<pre class="stretch"><code class="language-javascript">
+import shop from '../../../common/api/shop';
+
+// ...
+
+// checkout actions
+export const CHECKOUT_REQUEST = 'CHECKOUT_REQUEST';
+export const CHECKOUT_SUCCESS = 'CHECKOUT_SUCCESS';
+export const CHECKOUT_FAILURE = 'CHECKOUT_FAILURE';
+export function checkout(products) {
+    return (dispatch, getState) => {
+        const cart = getState().cart;
+
+        dispatch({ type: CHECKOUT_REQUEST });
+        shop.buyProducts(products, () => {
+            dispatch({ type: CHECKOUT_SUCCESS, cart: cart });
+        });
+    };
+}
+</code></pre>
+
+<div class="minimap">
+    <img src="slides/04_redux/images/redux-overview-small-inverse-actions.svg">
+</div>
+
+
+
+
+
+<div class="slide-comment">
+- Bei der Checkout-Action haben wir eine Kombination aus State-Zugriff und asychronem Action-Dispatching
+- Einfache Actions werden hier inline generiert und nicht durch lokale Action-Creator erzeugt
+- Die Behandlung des Fehlerfalls haben wir hier ausgelassen
+- Beispielsweise wäre ein Rollback möglich
+</div>
+
+<aside class="notes">
+    <ul>
+        <li>CHECKOUT_REQUEST leert Warenkorb</li>
+        <li>CHECKOUT_FAILURE für Rollback bei Fehler</li>
+        <li>auch möglich: Fortschritts-/Warteanzeige</li>
+    </ul>
+</aside>

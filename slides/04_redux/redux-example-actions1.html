@@ -1,0 +1,56 @@
+<h3 class="lower-right-headline">Redux - Beispiel - Actions (2/2)</h3>
+
+<pre class="stretch"><code class="language-javascript">
+import shop from '../../../common/api/shop';
+
+// ...
+
+// product actions
+export const RECEIVE_PRODUCTS = 'RECEIVE_PRODUCTS';
+function receiveProducts(products) {
+    return {
+        type: RECEIVE_PRODUCTS,
+        products: products
+    };
+}
+export function getAllProducts() {
+    return dispatch => {
+        shop.getProducts(products => {
+            dispatch(receiveProducts(products));
+        });
+    };
+}
+</code></pre>
+
+<div class="minimap">
+    <img src="slides/04_redux/images/redux-overview-small-inverse-actions.svg">
+</div>
+
+
+
+
+<div class="slide-comment">
+- Oben sehen wir einen gewöhnlichen Action-Creator
+- Dieser liefert nur ein einfaches Objekt zurück
+
+- Durch Middleware `thunk` ist es möglich, dass Action Creator nicht nur auf Objekte beschränkt sind
+- Stattdessen können auch Funktionen an `dispatch` übergeben werden,
+  die selber wieder `dispatch` und eine `getState` Funktion erhalten
+- Diese Action-Creator sind selbst aber erstmal auch reine Funktionen ohne Seiteneffekte
+
+- Hier wird `dispatch` verwendet um auf Basis einer asynchronen API eine Action zu dispatchen
+- Die Produktliste wird asynchron abgerufen und anschließend die RECEIVE_PRODUCTS-Action dispatched
+- da der `receiveProducts` Action-Creator ausserhalb nicht sinnvoll eingesetzt werden kann,
+  wird dieser hier auch gar nicht exportiert
+- Nur der Action-Typ wird exportiert, da der bei den Reducern interessant wird
+  -> sehen wir aber später
+</div>
+
+<aside class="notes">
+    <ul>
+        <li>Action Creators erzeugen reine Action-Objekte</li>
+        <li>Dispatch durch View oder Middleware (hier thunk)</li>
+        <li>thunk: Funktion mit dispatch, state als Parameter</li>
+        <li>für asynchrone Operationen</li>
+    </ul>
+</aside>

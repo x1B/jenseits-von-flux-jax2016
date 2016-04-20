@@ -1,0 +1,37 @@
+<h3 class="lower-right-headline">Redux - Beispiel - Actions (1/2)</h3>
+
+<pre class="stretch"><code class="language-javascript">
+import shop from '../../../common/api/shop';
+
+// cart actions
+export const ADD_TO_CART = 'ADD_TO_CART';
+export function addToCart(productId) {
+    return {
+        type: ADD_TO_CART,
+        productId: productId
+    };
+}
+
+// ...
+</code></pre>
+
+<div class="minimap">
+    <img src="slides/04_redux/images/redux-overview-small-inverse-actions.svg">
+</div>
+
+
+
+
+<div class="slide-comment">
+- hier sieht man ein Beispiel für einen einfachen Action-Creator
+- Dieser gibt nur ein Objekt für die geünschte Aktion zurück und ruft selber `dispatch` nicht auf
+- Die Konstante wird zusätzlich für die Reducer exportiert, das sehen wir aber später noch
+</div>
+
+<aside class="notes">
+    <ul>
+        <li>einfacher Reducer</li>
+        <li>Ruft dispatch selbst nicht auf</li>
+        <li>Konstante exportiert für Reducer</li>
+    </ul>
+</aside>

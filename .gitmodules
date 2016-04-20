@@ -1,0 +1,3 @@
+[submodule "demos/flux-comparison"]
+	path = demos/flux-comparison
+	url = https://github.com/voronianski/flux-comparison.git

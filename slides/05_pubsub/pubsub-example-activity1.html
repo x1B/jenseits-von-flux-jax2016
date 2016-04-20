@@ -1,0 +1,51 @@
+<h3 class="lower-right-headline">PubSub (LaxarJS) - Beispiel - Activity Component (2/2)</h3>
+
+<pre class="stretch"><code class="language-jsx"></code></pre>
+<script type="text/template" class="jsx-example">
+import ax from 'laxar';
+import patterns from 'laxar-patterns';
+import Shop from 'api';
+
+const injections = ['axContext'];
+function create(context) {
+    // ... products initialization (previous) ...
+
+    patterns.actions.handlerFor(context)
+        .registerActionsFromFeature('decrementInventory', ({ product }) => {
+            products
+                .filter(current => current.id == product.id)
+                .forEach(current => {
+                    current.inventory = Math.max(0, current.inventory - 1);
+                });
+            replaceProducts(products);
+        });
+}
+
+export default {
+    name: 'products-activity',
+    injections: injections,
+    create: create
+};
+</script>
+
+<div class="minimap">
+    <img src="slides/05_pubsub/images/pub-sub-topics-small-inverse-activities.svg">
+</div>
+
+
+<div class="slide-comment">
+- Aktionsbehandlung: Analog zu stores.
+- Bei Asynchronen aktionen werden Aufgaben der Action Creator mit übernommen.
+- Nach Zustandsänderung durch Aktion: Erneutes Publizieren der (relevanten) Ressourcen.
+</div>
+
+<aside class="notes">
+    <ul>
+        <li>Aktionen, Zustand</li>
+        <li>Und asynchronen Aktionen?</li>
+        <li>
+           Ressourcen: Die Actvity muss wissen, welche Ressourcen nach
+           Aktionsverarbeitung neu publiziert werden müssen
+        </li>
+    </ul>
+</aside>

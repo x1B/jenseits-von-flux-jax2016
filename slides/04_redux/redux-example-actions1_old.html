@@ -1,0 +1,46 @@
+<h3 class="lower-right-headline">Redux - Beispiel - Actions (2/3)</h3>
+
+<pre class="stretch"><code class="language-javascript">
+import shop from '../../../common/api/shop';
+
+// ...
+
+// cart actions
+export const ADD_TO_CART = 'ADD_TO_CART';
+function addToCartUnsafe(productId) {
+    return {
+        type: ADD_TO_CART,
+        productId: productId
+    };
+}
+export function addToCart(productId) {
+    return (dispatch, getState) => {
+        if (getState().productsById[productId].inventory > 0) {
+            dispatch(addToCartUnsafe(productId));
+        }
+    };
+}
+
+// ...
+</code></pre>
+
+<div class="minimap">
+    <img src="slides/04_redux/images/redux-overview-small-inverse-actions.svg">
+</div>
+
+
+
+
+<div class="slide-comment">
+- `thunk` kann auch einfach zur Prüfung von Vorbedingungen verwendet werden
+- hier kann ein Artikel nur in den Einkaufswagen gelegt werden, wenn noch mindestens einer verfügbar ist
+- dazu wird `getState` verwendet um das Inventar abzufragen
+- `addToCartUnsafe` ist auch hier wieder nur lokal relevant
+- Die Konstante dagegen wird auch wieder von den Reducern verwendet und exportiert
+</div>
+
+<aside class="notes">
+    <ul>
+        <li>thunk: auch synchron für Bedingungen</li>
+    </ul>
+</aside>

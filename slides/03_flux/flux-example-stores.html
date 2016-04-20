@@ -1,0 +1,60 @@
+<h3 class="lower-right-headline">Flux - Beispiel - Stores</h3>
+
+<div class="minimap">
+   <img src="slides/03_flux/images/flux-overview-small-inverse-stores.svg">
+</div>
+
+<pre class="stretch"><code class="language-jsx"></code></pre>
+<script type="text/template" class="jsx-example">
+var createStore = require('fluxible/addons/createStore');
+var ProductStore = createStore({
+    storeName: 'ProductStore',
+    initialize: function () {
+        this._products = [];
+    },
+
+    handlers: {
+        'ADD_TO_CART': 'decreaseInventory',
+        'RECEIVE_PRODUCTS': 'handleReceive'
+    },
+
+    handleReceive: function (payload) {
+        this._products = payload.products;
+        this.emitChange();
+    },
+
+    decreaseInventory: function (payload) {
+        this.dispatcher.waitFor('CartStore', function() {
+            var product = payload.product;
+            product.inventory = Math.max(product.inventory-1, 0);
+            this.emitChange();
+        });
+    },
+
+    getAllProducts: function () {
+        return this._products;
+    }
+});
+module.exports = ProductStore;
+</script>
+
+
+<div class="slide-comment">
+ - Stores verwalten jeweils "ihren" Ausschnitt der Datenwelt.
+   Hier geht es z.B. um den Lagerbestand.
+ - Sie haben Zugriff auf den dispatcher, aber sollten *KEINE actions selbst*
+   anstoßen (unidirectional data flow).
+ - Handlers (Fluxible): für jede behandelte Aktion wird ein Callback
+   registriert. Andere Implementierungen: Lange Switch-Case-Ketten.
+ - 'ADD_TO_CART': Product wird hier in-place bearbeitet!
+   Beispiel nicht optimal, aber zeigt gut, welche Fehler leicht gemacht werden.
+ - Stores dürfen außerdem *lesend* auf andere Stores zugreifen
+</div>
+<aside class="notes">
+    <ul>
+        <li>Stores</li>
+        <li>handlers vs. switch/case</li>
+        <li>Antipattern: mutable state in actions</li>
+        <li>waitFor, getStore - problematisch bzgl. Kapselung!</li>
+     </ul>
+</aside>

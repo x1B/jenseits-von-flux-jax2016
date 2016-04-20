@@ -1,0 +1,9 @@
+{
+  "name": "jenseits-von-flux",
+  "version": "0.1.0",
+  "dependencies": {
+    "reveal.js": "~3.2.0",
+    "highlightjs": "~9.0.0",
+    "prism": "^1.4.1"
+  }
+}

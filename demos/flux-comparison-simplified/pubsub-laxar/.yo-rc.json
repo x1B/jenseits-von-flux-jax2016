@@ -1,0 +1,11 @@
+{
+  "generator-laxarjs": {
+    "author": "Michael Kurze, aixigo AG",
+    "homepage": "http://www.laxarjs.org",
+    "licenses": [
+      "MIT"
+    ],
+    "banner": "/**\n * Copyright 2016 Michael Kurze, aixigo AG\n * Released under the MIT license\n * http://www.laxarjs.org\n */",
+    "laxarIntegrationTechnology": "react"
+  }
+}

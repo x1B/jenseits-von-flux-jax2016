@@ -1,0 +1,94 @@
+.minimap {
+    position: absolute;
+    right: 0;
+    top: 0;
+    transform-origin: top right;
+    transform: scale(0.8);
+}
+.reveal section .minimap img {
+    background: transparent;
+    box-shadow: none;
+}
+
+.print-pdf footer {
+    display: none !important;
+}
+
+.reveal footer {
+    position: absolute;
+    bottom: 0;
+    width: 100vw;
+    height: 15%;
+
+    text-align: right;
+    display: block;
+
+    transition: opacity 0.3s;
+    opacity: 0;
+    pointer-events: none;
+    background: url('../images/jax_footer_background.png') top left / contain repeat-x;
+}
+
+.reveal footer img {
+    padding-right: 5%;
+}
+
+/* put logo-footer on leading and trailing slides */
+.slide-number-0 .reveal footer,
+.slide-number-37 .reveal footer,
+.slide-number-38 .reveal footer {
+    opacity: 1;
+}
+
+h3.lower-right-headline {
+    position: absolute;
+    z-index: 1;
+
+    right: 0px;
+    bottom: 0px;
+
+    font-size: 1.3em;
+    font-style: italic;
+}
+
+.reveal section .slide-comment {
+    display: none;
+}
+
+.reveal section img {
+    border: none;
+    box-shadow: none;
+}
+.reveal section img.main {
+   min-width: 1200px;
+}
+
+
+.reveal pre {
+    box-shadow: none;
+    background: none;
+}
+
+.reveal pre > code {
+    line-height: 1.2em;
+    font-size: 1.3em;
+}
+
+img[onclick] {
+    cursor: pointer;
+}
+
+/* Slide specific stuff */
+
+.redux-overview-flux-overview img {
+    transform: scale(0.7);
+}
+.redux-overview-flux-overview.fragment {
+    display: inline-block;
+    transition: all 1s !important;
+    max-width: 0;
+}
+
+.redux-overview-flux-overview.fragment.visible {
+    max-width: 1920px;
+}

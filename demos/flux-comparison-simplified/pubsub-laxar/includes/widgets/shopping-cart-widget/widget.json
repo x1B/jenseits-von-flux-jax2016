@@ -1,0 +1,39 @@
+{
+   "name": "shopping-cart-widget",
+   "description": "Visual representation of a shopping cart",
+
+   "integration": {
+      "technology": "angular",
+      "type": "widget"
+   },
+
+   "features": {
+      "$schema": "http://json-schema.org/draft-04/schema#",
+      "type": "object",
+      "properties": {
+
+         "cart": {
+            "type": "object",
+            "properties": {
+               "resource": {
+                  "type": "string",
+                  "format": "topic",
+                  "axRole": "inlet"
+               }
+            }
+         },
+
+         "checkout": {
+            "type": "object",
+            "properties": {
+               "action": {
+                  "type": "string",
+                  "format": "topic",
+                  "axRole": "outlet"
+               }
+            }
+         }
+
+      }
+   }
+}

@@ -1,0 +1,49 @@
+<h3 class="lower-right-headline">Redux - Beispiel - Reducers (3/3)</h3>
+
+<pre class="stretch"><code class="language-javascript">
+import { combineReducers } from 'redux';
+import { RECEIVE_PRODUCTS, ADD_TO_CART } from '../actions';
+import cart from './cart';
+
+// ...
+
+export default combineReducers({
+    cart: cart,
+    productsById: productsById
+});
+
+export function getProductsList(state) {
+    return Object.keys(state).map(id => state[id]);
+}
+</code></pre>
+
+<div class="minimap">
+    <img src="slides/04_redux/images/redux-overview-small-inverse-reducers.svg">
+</div>
+
+
+
+
+
+<div class="slide-comment">
+- Die untere Funktion ist kein Reducer sondern nur Hilfsfunktion
+- Da sie aber Wissen über das Modell hat, ist sie hier gut aufgehoben
+- Wurde am Anfang verwendet, um den Zustand in das View-Modell zu transformieren
+
+- Darüber ist der Root-Reducer, der auch wie gesehen dem Store zur Verfügung gestellt wird
+- Erzeugt wird er durch die Redux-Funktion `combineReducers`
+- Diese verknüpft generisch Reducer für Zweige des Objektbaums
+- Das hießt, hier sieht man auch das erste mal tatsächlich die Modellstruktur
+- Dem Key `productsById` wird bspw. immer das Ergebnis des entsprechenden Reducer-Aufrufs zugewiesen
+
+- ÜBERGANG: Das war das Beispiel zu Redux. Was sind die Erkenntnisse?
+</div>
+
+<aside class="notes">
+    <ul>
+        <li>cart hier ignoriert</li>
+        <li>combineReducers: Reducer für Teilbäume festlegen</li>
+        <li>Keys entsprechen Keys in Datenmodell</li>
+        <li>Hilfsfunktionen</li>
+    </ul>
+</aside>

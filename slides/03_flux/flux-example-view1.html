@@ -1,0 +1,59 @@
+<h3 class="lower-right-headline">Flux - Beispiel - View (2/3)</h3>
+
+<pre class="stretch"><code class="language-jsx"></code></pre>
+<script type="text/template" class="jsx-example">
+var React = require('react');
+var FluxibleMixin = require('fluxible').FluxibleMixin;
+var ProductStore = require('./stores/ProductStore');
+var addToCart = require('./actions/addToCart');
+
+var Products = React.createClass({
+
+    // ...render, addToCart...
+
+    getInitialState: function() {
+        return this._getStateFromStores();
+    },
+
+    _getStateFromStores: function() {
+        return {
+           products: this.getStore(ProductStore).getAllProducts()
+        };
+    },
+
+    statics: {
+        storeListeners: {
+            _onChange: [ProductStore]
+        }
+    },
+
+    _onChange: function() {
+        this.setState(this._getStateFromStores());
+    }
+});
+</script>
+
+<div class="minimap">
+   <img src="slides/03_flux/images/flux-overview-small-inverse-view.svg">
+</div>
+
+
+<div class="slide-comment">
+ - Produkt-Komponente: Listet verfügbare Artikel mit ihrem Preis (price) und
+   Lagerbestand (inventory) auf. Per Klick auf den Button können neue Einträge
+   hinzugefügt werden.
+ - Die Produkte werden aus dem *state.products* bezogen. Das funktioniert, da
+   das *FluxibleMixin* Zugriff auf die Store-Zustände gibt, die *fast*
+   automatisch im State abgelegt werden.
+ - Ein Klick auf den Button übergibt die *Action Creator*-Funktion *addToCart*
+   an die Mixin-Methode *executeAction*, die den nächsten teilnehmer in unserer
+   Kette anstößt. Dabei wird das aktuelle Produkt *(hier) per Referenz*
+   übergeben.
+</div>
+<aside class="notes">
+    <ul>
+        <li>Produkt-Komponente: Auflisten, Add-to-Cart</li>
+        <li>Rendern von this.state.products</li>
+        <li>Auslösen der Aktion *addToCart*</li>
+     </ul>
+</aside>

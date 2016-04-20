@@ -1,0 +1,163 @@
+[
+    "01_preamble/index.md",
+    "02_client_architecture/client-architektur-wachstum.md",
+    "02_client_architecture/client-architektur-warum.md",
+    "02_client_architecture/client-architektur-reaktivitat.md",
+    "02_client_architecture/client-architektur-skalierbarkeit.md",
+    "02_client_architecture/gerichteter-fluss.md",
+    "03_flux/facebook-story.md",
+    "03_flux/flux-diagram.md",
+    "03_flux/flux-zoo.md",
+    "03_flux/flux-example-introduction.md",
+    [
+        {
+            "filename": "03_flux/flux-example-view0.html",
+            "attr": {
+                "data-background": "#3f3f3f"
+            }
+        },
+        {
+            "filename": "03_flux/flux-example-view1.html",
+            "attr": {
+                "data-background": "#3f3f3f"
+            }
+        },
+        {
+            "filename": "03_flux/flux-example-view2.html",
+            "attr": {
+                "data-background": "#3f3f3f"
+            }
+        }
+    ],
+    {
+        "filename": "03_flux/flux-example-actions.html",
+        "attr": {
+            "data-background": "#3f3f3f"
+        }
+    },
+    {
+        "filename": "03_flux/flux-example-dispatcher.html",
+        "attr": {
+            "data-background": "#3f3f3f"
+        }
+    },
+    {
+        "filename": "03_flux/flux-example-stores.html",
+        "attr": {
+            "data-background": "#3f3f3f"
+        }
+    },
+    "03_flux/flux-advantages.md",
+    "03_flux/flux-disadvantages.md",
+    "04_redux/evolution.md",
+    "04_redux/redux-diagram.md",
+    [
+        {
+            "filename": "04_redux/redux-example-view0.html",
+            "attr": {
+                "data-background": "#3f3f3f"
+            }
+        },
+        {
+            "filename": "04_redux/redux-example-view1.html",
+            "attr": {
+                "data-background": "#3f3f3f"
+            }
+        },
+        {
+            "filename": "04_redux/redux-example-view2.html",
+            "attr": {
+                "data-background": "#3f3f3f"
+            }
+        }
+    ],
+    [
+        {
+            "filename": "04_redux/redux-example-actions0.html",
+            "attr": {
+                "data-background": "#3f3f3f"
+            }
+        },
+        {
+            "filename": "04_redux/redux-example-actions1.html",
+            "attr": {
+                "data-background": "#3f3f3f"
+            }
+        }
+    ],
+    {
+        "filename": "04_redux/redux-example-store.html",
+        "attr": {
+            "data-background": "#3f3f3f"
+        }
+    },
+    [
+        {
+            "filename": "04_redux/redux-example-reducers0.html",
+            "attr": {
+                "data-background": "#3f3f3f"
+            }
+        },
+        {
+            "filename": "04_redux/redux-example-reducers1.html",
+            "attr": {
+                "data-background": "#3f3f3f"
+            }
+        },
+        {
+            "filename": "04_redux/redux-example-reducers2.html",
+            "attr": {
+                "data-background": "#3f3f3f"
+            }
+        }
+    ],
+    "04_redux/redux-advantages.md",
+    "04_redux/redux-disadvantages.md",
+    "05_pubsub/revolution.md",
+    "05_pubsub/decoupling.md",
+    "05_pubsub/pubsub-architecture.md",
+    "05_pubsub/pubsub-topics.md",
+    [
+        {
+            "filename": "05_pubsub/pubsub-example-view0.html",
+            "attr": {
+                "data-background": "#3f3f3f"
+            }
+        },
+        {
+            "filename": "05_pubsub/pubsub-example-view1.html",
+            "attr": {
+                "data-background": "#3f3f3f"
+            }
+        }
+    ],
+    [
+        {
+            "filename": "05_pubsub/pubsub-example-events.html",
+            "attr": {
+                "data-background": "#3f3f3f"
+            }
+        }
+    ],
+    [
+        {
+            "filename": "05_pubsub/pubsub-example-activity0.html",
+            "attr": {
+                "data-background": "#3f3f3f"
+            }
+        },
+        {
+            "filename": "05_pubsub/pubsub-example-activity1.html",
+            "attr": {
+                "data-background": "#3f3f3f"
+            }
+        }
+    ],
+    "05_pubsub/pubsub-in-practice.md",
+    "05_pubsub/pubsub-advantages.md",
+    "05_pubsub/pubsub-disadvantages.md",
+    "06_conclusion/comparison-what-is-flux.md",
+    "06_conclusion/comparison-table.md",
+    "06_conclusion/who-we-are.md",
+    "06_conclusion/image-credits.md"
+]

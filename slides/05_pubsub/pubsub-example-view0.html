@@ -1,0 +1,56 @@
+<h3 class="lower-right-headline">PubSub (LaxarJS) - Beispiel - View Component (1/2)</h3>
+
+<pre class="stretch"><code class="language-jsx"></code></pre>
+<script type="text/template" class="jsx-example">
+import React from 'react';
+import patterns from 'laxar-patterns';
+
+const injections = ['axContext', 'axReactRender'];
+function create(context, reactRender) {
+
+    patterns.resources.handlerFor(context)
+        .registerResourceFromFeature('products', render);
+
+    function render() {
+        reactRender(<ul>
+            {(context.resources.products || []).map(product =>
+                <li>
+                    <img src={product.image}/>
+                    {product.title} - {product.price}€
+                    <button onClick={() => addToCart(product)}
+                            disabled={product.inventory === 0}>add</button>
+                </li>
+            )}
+        </ul>);
+    }
+
+    // ... addToCart ...
+</script>
+
+<div class="minimap">
+    <img src="slides/05_pubsub/images/pub-sub-topics-small-inverse-view.svg">
+</div>
+
+
+<div class="slide-comment">
+- Hier verwenden wir ein inhouse entwickeltes pub/sub framework.
+- Jede View- (oder Activity-) Komponente ist ein JavaScript-Modul.
+- Man sieht: *Keine Abhängigkeiten* zu anderen Komponenten (vgl. Flux-Stores)
+  - Framework-Eigenheit: Injections, ähnlich zu AngularJS
+- Der aktuelle Zustand des Produktlagers wird per Ressource bezogen.
+  - Wir verwenden eine Hilfsbibliothek, die das Ressourcen-Pattern auf dem
+    Event-Bus für uns umsetzt. Der aktuelle Zustand wird unter context.resources
+    abgelegt.
+  - An dieser Stelle wissen wir nicht, über welches Topic (Konfigurationszeit)
+- Die render-Methode sieht *fast* genau so aus wie bei Flux/Redux.
+  - Unterschied: `axReactRender`
+</div>
+
+<aside class="notes">
+    <ul>
+        <li>Inhouse entwickeltes Framework</li>
+        <li>Modulstruktur, Dependencies, Injections</li>
+        <li>Ressource/Patterns/Topic</li>
+        <li>reactRender</li>
+    </ul>
+</aside>

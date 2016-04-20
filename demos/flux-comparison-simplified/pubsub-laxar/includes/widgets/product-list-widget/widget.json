@@ -1,0 +1,39 @@
+{
+   "name": "product-list-widget",
+   "description": "A visual product browser",
+
+   "integration": {
+      "technology": "react",
+      "type": "widget"
+   },
+
+   "features": {
+      "$schema": "http://json-schema.org/draft-04/schema#",
+      "type": "object",
+      "properties": {
+
+         "products": {
+            "type": "object",
+            "properties": {
+               "resource": {
+                  "type": "string",
+                  "format": "topic",
+                  "axRole": "inlet"
+               }
+            }
+         },
+
+         "addToCart": {
+            "type": "object",
+            "properties": {
+               "action": {
+                  "type": "string",
+                  "format": "topic",
+                  "axRole": "outlet"
+               }
+            }
+         }
+
+      }
+   }
+}

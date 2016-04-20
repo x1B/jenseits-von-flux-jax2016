@@ -1,0 +1,133 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
+   class="nvd3-svg" height="260px" width="540px" style="height: 260px; width: 540px">
+   <style>
+      text {
+         font-family: sans-serif;
+         font-size: 10pt;
+      }
+
+      .nv-point {
+         fill: white;
+         stroke: black;
+      }
+
+   </style>
+    <g transform="translate(60,30)" class="nvd3 nv-wrap nv-stackedAreaChart">
+        <g>
+            <rect height="190" width="429" style="opacity: 0;"></rect>
+            <g transform="translate(0,190)" class="nv-x nv-axis nvd3-svg">
+                <g class="nvd3 nv-wrap nv-axis">
+                    <g>
+                        <g transform="translate(131.51382047071704,0)" style="opacity: 1;" class="tick">
+                            <line x2="0" y2="-190"></line>
+                            <text x="0" style="text-anchor: middle;" dy=".71em" y="7">2012-10-12</text>
+                        </g>
+                        <g transform="translate(267.3999118165785,0)" style="opacity: 1;" class="tick">
+                            <line x2="0" y2="-190"></line>
+                            <text x="0" style="text-anchor: middle;" dy=".71em" y="7">2014-05-13</text>
+                        </g>
+                        <path d="M0,0V0H429V0" class="domain"></path>
+                        <text x="214.5" y="36" text-anchor="middle" class="nv-axislabel"></text>
+                    </g>
+                    <g transform="translate(0,0)" class="nv-axisMaxMin">
+                        <text style="text-anchor: middle;" transform="rotate(0 0,0)" y="7" dy=".71em">2011-04-01</text>
+                    </g>
+                    <g transform="translate(428.99999999999994,0)" class="nv-axisMaxMin">
+                        <text style="text-anchor: middle;" transform="rotate(0 0,0)" y="7" dy=".71em">2016-04-01</text>
+                    </g>
+                </g>
+            </g>
+            <g class="nv-y nv-axis nvd3-svg">
+                <g class="nvd3 nv-wrap nv-axis">
+                    <g>
+                        <g transform="translate(0,190)" style="opacity: 1;" class="tick zero">
+                            <line y2="0" x2="429"></line>
+                            <text y="0" opacity="0" style="text-anchor: end;" dy=".32em" x="-3">0 -</text>
+                        </g>
+                        <g transform="translate(0,145.81395348837208)" style="opacity: 1;" class="tick">
+                            <line y2="0" x2="429"></line>
+                            <text y="0" opacity="1" style="text-anchor: end;" dy=".32em" x="-3">100 -</text>
+                        </g>
+                        <g transform="translate(0,101.62790697674419)" style="opacity: 1;" class="tick">
+                            <line y2="0" x2="429"></line>
+                            <text y="0" opacity="1" style="text-anchor: end;" dy=".32em" x="-3">200 -</text>
+                        </g>
+                        <g transform="translate(0,57.441860465116264)" style="opacity: 1;" class="tick">
+                            <line y2="0" x2="429"></line>
+                            <text y="0" opacity="1" style="text-anchor: end;" dy=".32em" x="-3">300 -</text>
+                        </g>
+                        <g transform="translate(0,13.25581395348837)" style="opacity: 1;" class="tick">
+                            <line y2="0" x2="429"></line>
+                            <text y="0" opacity="1" style="text-anchor: end;" dy=".32em" x="-3">400 -</text>
+                        </g>
+                        <path d="M0,0H0V190H0" class="domain"></path>
+                        <text x="-95" y="-80" transform="rotate(-90)" style="text-anchor: middle;" class="nv-axislabel">Stock Price [EUR]</text>
+                    </g>
+                    <g transform="translate(0,190)" class="nv-axisMaxMin">
+                        <text text-anchor="end" x="-3" y="0" dy=".32em" style="opacity: 1;">0 -</text>
+                    </g>
+                </g>
+            </g>
+            <g class="nv-stackedWrap nvd3-svg">
+                <g transform="translate(0,0)" class="nvd3 nv-wrap nv-stackedarea">
+                    <defs>
+                        <clipPath id="nv-edge-clip-7229">
+                            <rect height="190" width="429"></rect>
+                        </clipPath>
+                    </defs>
+                    <g clip-path="">
+                        <g class="nv-areaWrap">
+                            <path
+                                style="fill: rgb(31, 119, 180); stroke: rgb(31, 119, 180);"
+                                d="M0,140.06976744186048L42.97044334975369,129.46511627906978L85.94088669950737,117.53488372093024L128.91133004926107,104.27906976744187L171.64696223316912,100.30232558139535L214.61740558292283,77.32558139534885L257.3530377668309,66.27906976744185L300.32348111658456,53.90697674418607L343.0591133004926,35.34883720930233L386.02955665024626,11.488372093023258L428.99999999999994,0L428.99999999999994,190L386.02955665024626,190L343.0591133004926,190L300.32348111658456,190L257.3530377668309,190L214.61740558292283,190L171.64696223316912,190L128.91133004926107,190L85.94088669950737,190L42.97044334975369,190L0,190Z"
+                                class="nv-area nv-area-0"></path>
+                        </g>
+                        <g class="nv-scatterWrap nvd3-svg">
+                            <g transform="translate(0,0)" class="nvd3 nv-wrap nv-scatter nv-chart-71904">
+                                <defs>
+                                    <clipPath id="nv-edge-clip-71904">
+                                        <rect height="190" width="429"></rect>
+                                    </clipPath>
+                                </defs>
+                                <g clip-path="">
+                                    <g class="nv-groups">
+                                        <g class="nv-group nv-series-0" style="stroke-opacity: 1; fill-opacity: 0.5; stroke: rgb(31, 119, 180); fill: rgb(31, 119, 180);">
+                                            <path class="nv-point nv-point-0" d="M0,2.256758334191025A2.256758334191025,2.256758334191025 0 1,1 0,-2.256758334191025A2.256758334191025,2.256758334191025 0 1,1 0,2.256758334191025Z" transform="translate(0,140.06976744186048)"></path>
+                                            <path class="nv-point nv-point-1" d="M0,2.256758334191025A2.256758334191025,2.256758334191025 0 1,1 0,-2.256758334191025A2.256758334191025,2.256758334191025 0 1,1 0,2.256758334191025Z" transform="translate(42.97044334975369,129.46511627906978)"></path>
+                                            <path class="nv-point nv-point-2" d="M0,2.256758334191025A2.256758334191025,2.256758334191025 0 1,1 0,-2.256758334191025A2.256758334191025,2.256758334191025 0 1,1 0,2.256758334191025Z" transform="translate(85.94088669950737,117.53488372093024)"></path>
+                                            <path class="nv-point nv-point-3" d="M0,2.256758334191025A2.256758334191025,2.256758334191025 0 1,1 0,-2.256758334191025A2.256758334191025,2.256758334191025 0 1,1 0,2.256758334191025Z" transform="translate(128.91133004926107,104.27906976744187)"></path>
+                                            <path class="nv-point nv-point-4" d="M0,2.256758334191025A2.256758334191025,2.256758334191025 0 1,1 0,-2.256758334191025A2.256758334191025,2.256758334191025 0 1,1 0,2.256758334191025Z" transform="translate(171.64696223316912,100.30232558139535)"></path>
+                                            <path class="nv-point nv-point-5" d="M0,2.256758334191025A2.256758334191025,2.256758334191025 0 1,1 0,-2.256758334191025A2.256758334191025,2.256758334191025 0 1,1 0,2.256758334191025Z" transform="translate(214.61740558292283,77.32558139534885)"></path>
+                                            <path class="nv-point nv-point-6" d="M0,2.256758334191025A2.256758334191025,2.256758334191025 0 1,1 0,-2.256758334191025A2.256758334191025,2.256758334191025 0 1,1 0,2.256758334191025Z" transform="translate(257.3530377668309,66.27906976744185)"></path>
+                                            <path class="nv-point nv-point-7" d="M0,2.256758334191025A2.256758334191025,2.256758334191025 0 1,1 0,-2.256758334191025A2.256758334191025,2.256758334191025 0 1,1 0,2.256758334191025Z" transform="translate(300.32348111658456,53.90697674418607)"></path>
+                                            <path class="nv-point nv-point-8" d="M0,2.256758334191025A2.256758334191025,2.256758334191025 0 1,1 0,-2.256758334191025A2.256758334191025,2.256758334191025 0 1,1 0,2.256758334191025Z" transform="translate(343.0591133004926,35.34883720930233)"></path>
+                                            <path class="nv-point nv-point-9" d="M0,2.256758334191025A2.256758334191025,2.256758334191025 0 1,1 0,-2.256758334191025A2.256758334191025,2.256758334191025 0 1,1 0,2.256758334191025Z" transform="translate(386.02955665024626,11.488372093023258)"></path>
+                                            <path class="nv-point nv-point-10" d="M0,2.256758334191025A2.256758334191025,2.256758334191025 0 1,1 0,-2.256758334191025A2.256758334191025,2.256758334191025 0 1,1 0,2.256758334191025Z" transform="translate(428.99999999999994,0)"></path>
+                                        </g>
+                                    </g>
+                                    <g class="nv-point-paths"></g>
+                                </g>
+                            </g>
+                        </g>
+                    </g>
+                </g>
+            </g>
+            <g transform="translate(265,-30)" class="nv-legendWrap nvd3-svg">
+                <g transform="translate(0,5)" class="nvd3 nv-legend">
+                    <g transform="translate(-11,5)">
+                        <g transform="translate(0,5)" class="nv-series">
+                            <circle r="5" class="nv-legend-symbol" style="stroke-width: 2; fill: rgb(31, 119, 180); stroke: rgb(31, 119, 180);"></circle>
+                            <text dx="8" dy=".32em" class="nv-legend-text" text-anchor="start">JS Transfer / kB</text>
+                        </g>
+                    </g>
+                </g>
+            </g>
+            <g class="nv-interactive">
+                <g class=" nv-wrap nv-interactiveLineLayer">
+                    <g class="nv-interactiveGuideLine"></g>
+                </g>
+            </g>
+        </g>
+    </g>
+</svg>

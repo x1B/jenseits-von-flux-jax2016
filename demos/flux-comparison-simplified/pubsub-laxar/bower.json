@@ -1,0 +1,18 @@
+{
+  "name": "pubsub-demo",
+  "version": "0.1.0-pre",
+  "description": "pub/sub based shop example",
+  "license": "MIT",
+  "dependencies": {
+    "laxar": "~1.2.0",
+    "laxar-uikit": "~1.1.0",
+    "laxar-patterns": "~1.2.0",
+    "laxar-developer-tools-widget": "^2.0.3",
+    "laxar-react-adapter": "^0.4.0"
+  },
+  "devDependencies": {
+    "jasmine": "",
+    "jasmine2": "jasmine#2.3.x",
+    "laxar-mocks": "~1.0.0"
+  }
+}

@@ -1,0 +1,64 @@
+<h3 class="lower-right-headline">Redux - Beispiel - Reducers (2/3)</h3>
+
+<pre class="stretch"><code class="language-javascript">
+import { combineReducers } from 'redux';
+import { RECEIVE_PRODUCTS, ADD_TO_CART } from '../actions';
+import cart from './cart';
+
+// ...
+
+export function productsById(state = {}, action) {
+    switch (action.type) {
+        case RECEIVE_PRODUCTS:
+            return action.products.reduce((obj, product) => {
+                obj[product.id] = product;
+                return obj;
+            }, {});
+
+        default:
+            const { productId } = action;
+            if (productId) {
+                return {
+                    ...state,
+                    [productId]: product(state[productId], action)
+                };
+            }
+            return state;
+    }
+}
+
+// ...
+</code></pre>
+
+<div class="minimap">
+    <img src="slides/04_redux/images/redux-overview-small-inverse-reducers.svg">
+</div>
+
+
+
+
+<div class="slide-comment">
+- Dieser Reducer kümmert sich um die Map, in der Produkte jeweils ihrer ID zugeordnet sind
+- Gibt es keinen initialen Zustand, wird eine leere Map verwendet
+
+- Hier werden zwei Arten von Aktionen behandelt:
+  - eine die vollständig lokal behandelt wird
+  - und eine für die an den `product`-Reducer delegiert wird
+
+- Bei Erhalt der RECEIVE_PRODUCTS-Aktion werden die als Liste erhaltenen Produkte per `Array.reduce` in eine Map transformiert
+- Eine bestehende Map von Produkten wird vollständig ersetzt
+- Wäre es eine Anforderung gewesen, hätte man hier die Produkte zusammenführen können
+
+- Bei allen anderen Aktionen wird geprüft, ob ein Feld `productId` als Payload der Aktion mitgeliefert wird
+- Falls ja wird an der `product` Reducer mit dem zugehörigen Produkt aufgerufen
+  und die Map durch eine neue mit dem neuen Produkt ersetzt
+- Falls es keine Produkt-ID gibt, bleibt es beim bisherigen Zustand
+</div>
+
+<aside class="notes">
+    <ul>
+        <li>Konvertieren Liste von Server in Map</li>
+        <li>Default-Wert bei fehlendem State (ES2015 Syntax)</li>
+        <li>Delegiert an konkreten Reducer bei Aktion für einzelnes Produkt</li>
+    </ul>
+</aside>

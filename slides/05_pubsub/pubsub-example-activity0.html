@@ -1,0 +1,50 @@
+<h3 class="lower-right-headline">PubSub (LaxarJS) - Beispiel - Activity Component (1/2)</h3>
+
+<pre class="stretch"><code class="language-jsx"></code></pre>
+<script type="text/template" class="jsx-example">
+import ax from 'laxar';
+import patterns from 'laxar-patterns';
+import shop from '../../../api';
+
+const injections = ['axContext'];
+function create(context) {
+    let products = [];
+    const replaceProducts =
+        patterns.resources.replacePublisherForFeature(context, 'products');
+
+    context.eventBus.subscribe('beginLifecycleRequest', () => {
+        shop.getProducts(list => {
+            products = list;
+            replaceProducts(products);
+        });
+    });
+
+    // ... action handling (next) ...
+}
+
+export default {
+    name: 'products-activity',
+    injections: injections,
+    create: create
+};
+</script>
+
+<div class="minimap">
+    <img src="slides/05_pubsub/images/pub-sub-topics-small-inverse-activities.svg">
+</div>
+
+
+<div class="slide-comment">
+- Activty-Komponente hält ihren Zustand (vergleichbar mit Flux-Store), und definiert selbst den Initialzustand.
+- Es wird wieder die Pattern-Hilfsbibliothek verwendet, um den Zustand zu verschicken.
+- Wenn alle Komponenten instanziiert sind (bei Erhalt von *beginLifecycleRequest*), wird der initialzustand verschickt
+- Auch hier: keine Kentniss über Art/Existenz der View-Komponenten.
+</div>
+
+<aside class="notes">
+    <ul>
+        <li>State (vgl. Flux-Store)</li>
+        <li>Patterns, Initialisierung</li>
+        <li>Entkopplung</li>
+    </ul>
+</aside>

@@ -1,0 +1,58 @@
+<h3 class="lower-right-headline">Flux - Beispiel - View (1/3)</h3>
+
+<pre class="stretch"><code class="language-jsx"></code></pre>
+<script type="text/template" class="jsx-example">
+var React = require('react');
+var FluxibleMixin = require('fluxible').FluxibleMixin;
+var ProductStore = require('./stores/ProductStore');
+var addToCart = require('./actions/addToCart');
+
+var Products = React.createClass({
+    mixins: [FluxibleMixin],
+    render: function() {
+        return <ul>
+            {this.state.products.map(product =>
+                <li>
+                    <img src={product.image}/>
+                    {product.title} - {product.price}€
+                    <button onClick={() => this.addToCart(product)}
+                            disabled={product.inventory === 0}>add</button>
+                </li>
+            )}
+        </ul>;
+    },
+
+    addToCart: function(product) {
+        this.executeAction(addToCart, { product: product });
+    },
+
+    // ...
+});
+</script>
+
+<div class="minimap">
+   <img src="slides/03_flux/images/flux-overview-small-inverse-view.svg">
+</div>
+
+
+<div class="slide-comment">
+ - Fluxible: View besteht (normalerweise) aus React-Componenten.
+ - Die React-Funktionalität des *Context* wird hier verwendet, und mit dem
+   Fluxible-Context belegt, um allen Komponenten Zugriff zu geben.
+ - Das *FluxibleMixin* vereinfacht die Arbeit mit dem Fluxible-Kontext, und
+   den Zugriff auf die Stores.
+ - Die Funktion *render* erzeugt das HTML-DOM der ganzen Anwendung, ausgehend
+   von der Wurzelkomponente *Add*.
+ - Diese Wurzelkomponente macht selbst erstmal nichts, sondern rendert die
+   Produkt-Liste (*Products*) und den Warenkorb (*ShoppingCart*).
+ - Für die die *jsx* nicht kennen: Aus dem XML-Fragment wird zur Compile-Zeit ein
+   äquivalenter Javascript-Ausdruck generiert (Factory-Aufrufe).
+</div>
+<aside class="notes">
+    <ul>
+        <li>Fluxible-View</li>
+        <li>React-Context / Fluxible-Context</li>
+        <li>render</li>
+        <li>App-Komponente, JSX</li>
+     </ul>
+</aside>

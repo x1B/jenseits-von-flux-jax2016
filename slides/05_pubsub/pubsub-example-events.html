@@ -1,0 +1,53 @@
+<h3 class="lower-right-headline">PubSub (LaxarJS) - Beispiel - Events</h3>
+
+<pre class="stretch"><code class="language-jsx"></code></pre>
+<script type="text/template" class="jsx-example">
+ {
+     "widget": "product-list-view",
+     "features": {
+         "addToCart": { "action": "add-to-cart" },
+         "products": { "resource": "product-list" }
+     }
+ },
+ {
+     "widget": "shopping-cart-view",
+     "features": { ... }
+ },
+ {
+     "widget": "products-activity",
+     "features": {
+         "products": { "resource": "product-list" },
+         "decrementInventory": { "onActions": ["add-to-cart"] }
+     }
+ },
+ {
+     "widget": "shopping-cart-activity",
+     "features": { ... }
+ }
+</script>
+
+<div class="minimap">
+    <img src="slides/05_pubsub/images/pub-sub-topics-small-inverse-events.svg">
+</div>
+
+
+<div class="slide-comment">
+- Die *konsequente lose Kopplung* ermöglicht eine Verbindung zur *Konfigurationszeit*.
+- Selbst auferlegt: Statische Verbindung per JSON-Konfiguration.
+  Manchmal unflexibel, erlaubt aber die Anwendungsdynamik statisch zu erfassen.
+- Verbindungen zwischen Teilnehmern werden über gemeinsame Topics gebildet,
+  die jeweils den entsprechenden "Anschlüssen" Activity- und View-Komponenten
+  zugeordnet sind.
+- Aktionen können dabei jeweils aus verschiedenen Quellen angestoßen werden (Array-config),
+  Ressourcen haben dagegen immer genau eine *owner*-Activity, hier würde das Array keinen Sinn machen.
+- Dieses deklarative Format kann von Werkzeugen ausgewertet werden, um einen
+  Überblick über komplexe Anwendungen zu erhalten.
+</div>
+
+<aside class="notes">
+    <ul>
+        <li>JSON-Seitenkonfiguration</li>
+        <li>Deklarative Zuordnung von Kollaborateuren</li>
+        <li>Statisch, aber beliebig erweiterbar (z.B. 2 shopping-carts)</li>
+    </ul>
+</aside>

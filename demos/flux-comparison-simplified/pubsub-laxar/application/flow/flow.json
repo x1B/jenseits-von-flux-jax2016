@@ -1,0 +1,13 @@
+{
+   "places": {
+      "entry": {
+         "redirectTo": "shop"
+      },
+
+      "shop": {
+         "page":  "shop",
+         "targets": {
+         }
+      }
+   }
+}

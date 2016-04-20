@@ -1,0 +1,51 @@
+<h3 class="lower-right-headline">Redux - Beispiel - View (3/3)</h3>
+
+<pre class="stretch"><code class="language-jsx"></code></pre>
+<script type="text/template" class="jsx-example">
+import React, { Component } from 'react';
+import { connect, Provider } from 'react-redux';
+import { addToCart } from './actions';
+import { getProductsList } from './reducers/products';
+import { ShoppingCart } from './components/CartContainer.jsx';
+
+// ...
+
+export function render(store, element) {
+    React.render(
+        <Provider store={store}>
+            {() =>  <div>
+                        <Products />
+                        <ShoppingCart />
+                    </div>}
+        </Provider>,
+        element
+    );
+}
+</script>
+
+<div class="minimap">
+    <img src="slides/04_redux/images/redux-overview-small-inverse-view.svg">
+</div>
+
+
+
+
+
+<div class="slide-comment">
+- Für die Anwendung stellen wir eine render-Funktion zur Verfügung
+- Diese erhält den Store und das Element in das die Anwendung eingehangen werden soll
+
+- Provider-Komponente wird ebenfalls durch `react-redux` zur Verfügung gestellt
+- Diese wird als oberste Containerkomponente verwendet und erhält als einzige direkt den Store als Property
+- Sie stellt diesen dann `connect` für alle Kindkomponenten zur Verfügung
+
+- Dadrunter dann unsere `Products`-Komponente von eben und die `ShoppingCart`-Komponente
+- Letztere klammern wir hier im Beispiel aus
+</div>
+
+<aside class="notes">
+    <ul>
+        <li>Provider aus react-redux</li>
+        <li>generische Container-Komponente</li>
+        <li>stellt mit <code>connect</code> erzeugten Komponenten store zur Verfügung</li>
+</aside>

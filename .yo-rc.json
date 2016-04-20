@@ -1,0 +1,9 @@
+{
+  "generator-reveal": {
+    "presentationTitle": "Jenseits von Flux",
+    "packageVersion": "0.1.0",
+    "revealTheme": "white",
+    "useSass": false,
+    "deployToGithubPages": false
+  }
+}

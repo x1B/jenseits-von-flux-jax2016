@@ -1,0 +1,54 @@
+<h3 class="lower-right-headline">PubSub (LaxarJS) - Beispiel - View Component (2/2)</h3>
+
+<pre class="stretch"><code class="language-jsx"></code></pre>
+<script type="text/template" class="jsx-example">
+import React from 'react';
+import patterns from 'laxar-patterns';
+
+const injections = ['axContext', 'axReactRender'];
+function create(context, reactRender) {
+
+    // ... render ...
+
+    const addToCartPublisher =
+        patterns.actions.publisherForFeature(context, 'addToCart')
+
+    function addToCart(product) {
+        if(product.inventory > 0) {
+            addToCartPublisher({ product: product });
+        }
+    }
+
+    return { onDomAvailable: render };
+}
+
+export default {
+    name: 'product-list-view',
+    injections: injections,
+    create: create
+};
+</script>
+
+<div class="minimap">
+    <img src="slides/05_pubsub/images/pub-sub-topics-small-inverse-view.svg">
+</div>
+
+
+<div class="slide-comment">
+- Aktionen werden ebenfalls per Hilfsbibliothek umgesetzt.
+  - Wir wissen hier nicht, ob/wer sich um die Aktion kümmert.
+  - Lokale Validierung geschieht hier.
+- Action-Request (publisher-Aufruf) kann fehlschlagen: Promise-Verarbeitung.
+  - Fehlerbehandlung per Promise: strenggenommen Bruch mit dem Unidirectional Flow
+  - Wir wollen aber jedem selbst überlassen, Aktionsverläufe über die Ressourcen-Zustände
+    abzubilden, oder in der View-Komponente direkt zu behandeln.
+- `onDomAvailable` triggert initiales rendern.
+</div>
+
+<aside class="notes">
+    <ul>
+        <li>Aktionen/Patterns/Topics</li>
+        <li>Lokale Validierung</li>
+        <li>Fehler bei Aktionsausführung?</li>
+    </ul>
+</aside>
