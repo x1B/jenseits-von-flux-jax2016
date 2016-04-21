@@ -10,34 +10,8 @@
     box-shadow: none;
 }
 
-.print-pdf footer {
+footer {
     display: none !important;
-}
-
-.reveal footer {
-    position: absolute;
-    bottom: 0;
-    width: 100vw;
-    height: 15%;
-
-    text-align: right;
-    display: block;
-
-    transition: opacity 0.3s;
-    opacity: 0;
-    pointer-events: none;
-    background: url('../images/jax_footer_background.png') top left / contain repeat-x;
-}
-
-.reveal footer img {
-    padding-right: 5%;
-}
-
-/* put logo-footer on leading and trailing slides */
-.slide-number-0 .reveal footer,
-.slide-number-37 .reveal footer,
-.slide-number-38 .reveal footer {
-    opacity: 1;
 }
 
 h3.lower-right-headline {
