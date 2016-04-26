@@ -1,10 +1,8 @@
 ## Flux - Beispiel
 
-<div class="stretch">
-    <a href="demos/flux-comparison/yahoo-fluxible/index.html" target="demo">
-        <img class="main" src="slides/03_flux/images/flux-example-introduction.png">
-    </a>
-</div>
+<a href="demos/flux-comparison/yahoo-fluxible/index.html" target="demo">
+    <img class="main" width="700" src="slides/03_flux/images/flux-example-introduction.png">
+</a>
 
 - https://github.com/voronianski/flux-comparison
 
