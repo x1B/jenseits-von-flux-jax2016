@@ -2,7 +2,7 @@
 
 ## Publish-Subscribe
 
-<img alt="80er Patterns" width="800" src="slides/05_pubsub/images/80ies-pattern-02.jpg">
+<img alt="80er Patterns" width="800" src="slides/05_pubsub/images/magic-cube-232282_1920.jpg">
 
 bekanntes Pattern aus den 80ern
 
